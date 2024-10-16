@@ -26,14 +26,12 @@ a {
 }
 button {
   cursor: pointer;
+  font-family: inherit;
 }
 img {
   display: block;
   max-width: 100%;
   height: auto;
-}
-button {
-  cursor: pointer;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -83,7 +81,7 @@ body {
   align-items: center;
 }
 .menu,
-.page-address {
+.contacts {
   display: none;
 }
 .header-container {
@@ -161,11 +159,19 @@ body {
     height: 4px;
     border-radius: 2px;
     background-color: #404bbf;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .menu-link:hover::after,
+  .menu-link:focus::after,
+  .menu-link.current::after {
+    opacity: 1;
   }
   .page-address {
     display: block;
     font-style: normal;
   }
+
   .contacts {
     display: flex;
     flex-direction: column;
@@ -278,16 +284,12 @@ body {
   font-style: normal;
   margin-left: auto;
 }
-.contacts {
+.contacts-moile {
   font-style: normal;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   margin-bottom: auto;
 }
-.contacts-link {
+.contacts-link-mobile {
   display: block;
-  padding: 24px 0;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -506,19 +508,20 @@ body {
   .page-benef-div {
     flex-wrap: nowrap;
   }
-  .icon-benef-m {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 100px;
+
+  .menu-benefits-item {
+    width: calc((100% - 72px) / 4);
+  }
+  .icon-benefits {
+    width: 264px;
+    height: 112px;
     background-color: #f4f4fd;
     border: 1px solid #8e8f99;
     border-radius: 4px;
     margin-bottom: 8px;
-    height: 112px;
-  }
-  .menu-benefits-item {
-    width: calc((100% - 72px) / 4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .local-item {
     font-weight: 500;
@@ -550,7 +553,7 @@ body {
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  width: 264px;
+  max-width: 264px;
   background-color: #fff;
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
